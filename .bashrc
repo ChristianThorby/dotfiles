@@ -130,3 +130,6 @@ export PATH="$PATH:~/bin/VSCode-linux-x64/bin"
 # ALIASES
 alias sudo='sudo env "PATH=$PATH"'
 alias gc='google-chrome'
+alias ..='cd ..'
+alias gh='history | grep'
+alias copydotfiles='cp .bashrc ~/repos/dotfiles && cp .vimrc ~/repos/dotfiles && cp .bash_profile ~/repos/dotfiles'
