@@ -1,0 +1,21 @@
+todo new workstation
+
+install gnu-stow
+
+install fzf
+
+install starlight 
+    install a nerdfont, maybe "meslo"
+    iterm2
+        if displaying questionmarks in repos check 'Use built-in Powerline glyphs' and select correct nerffont 
+
+install neovim
+    git clone https://github.com/ChristianThorby/kickstart.nvim.git
+
+add to git config file
+    [includeIf "gitdir:~/personal/"]
+        path = ~/.config/git/shared-config
+
+add to .zshrc file
+    source ~/.zshrc_shared
+

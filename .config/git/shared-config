@@ -1,0 +1,7 @@
+[core]
+    editor = vim
+    autocrlf = false
+[commit]
+    verbose = true
+[alias]
+    pf = push --force-with-lease
