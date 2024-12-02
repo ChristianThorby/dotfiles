@@ -5,3 +5,5 @@
     verbose = true
 [alias]
     pf = push --force-with-lease
+[rerere]
+    enabled = true
