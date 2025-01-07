@@ -13,8 +13,8 @@ install neovim
     git clone https://github.com/ChristianThorby/kickstart.nvim.git
 
 add to git config file
-    [includeIf "gitdir:~/personal/"]
-        path = ~/.config/git/shared-config
+[include]
+    path = ~/.config/git/shared-config
 
 add to .zshrc file
     source ~/.zshrc_shared
