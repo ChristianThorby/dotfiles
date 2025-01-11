@@ -1,16 +1,19 @@
 todo new workstation
 
-install gnu-stow
+brew install iterm2
+brew install stow
+brew install fzf
+brew install neovim
+brew install --cask font-meslo-lg-nerd-font
+brew install starship
 
-install fzf
+legg til meslo i default-profile i iterm
 
-install starlight 
-    install a nerdfont, maybe "meslo"
-    iterm2
-        if displaying questionmarks in repos check 'Use built-in Powerline glyphs' and select correct nerffont 
+clone neovim-treesitter
+    git clone git@github.com:ChristianThorby/kickstart.nvim.git
 
-install neovim
-    git clone https://github.com/ChristianThorby/kickstart.nvim.git
+clone dotfiles
+    git clone git@github.com:ChristianThorby/dotfiles.git
 
 add to git config file
 [include]
@@ -19,3 +22,6 @@ add to git config file
 add to .zshrc file
     source ~/.zshrc_shared
 
+fix for holdkey issue after ideaVim install on mac
+defaults write -g ApplePressAndHoldEnabled 0
+restart intellij
