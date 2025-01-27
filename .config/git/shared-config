@@ -7,3 +7,5 @@
     pf = push --force-with-lease
 [rerere]
     enabled = true
+[advice]
+    statusHints = off
