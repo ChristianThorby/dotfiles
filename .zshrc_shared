@@ -46,7 +46,7 @@ alias sr='source ~/.zshrc'
 git() {
   command git "$@"
   case "$1" in
-    add|commit|checkout|reset)
+    add|commit|checkout|reset|push)
       command git status
       ;;
   esac
