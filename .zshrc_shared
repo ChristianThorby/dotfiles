@@ -47,6 +47,7 @@ git() {
   command git "$@"
   case "$1" in
     add|commit|checkout|reset|push)
+      echo "\n-git status-"
       command git status
       ;;
   esac
