@@ -39,9 +39,9 @@ setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_SPACE
 
 alias vim="nvim"
-alias gh2='(){ history -E 1 | grep $1 | sort | uniq;}'
-alias gh='history -E 1 | fzf'
 alias texturepack='java -cp ~/bin/runnable-texturepacker.jar com.badlogic.gdx.tools.texturepacker.TexturePacker ~/texture-packing/ ~/repos/rpg-ktx/assets/ sprites.atlas ~/libgdx-texturepacker-setting.txt'
+alias sr='source ~/.zshrc'
+
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
