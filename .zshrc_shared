@@ -42,6 +42,16 @@ alias vim="nvim"
 alias texturepack='java -cp ~/bin/runnable-texturepacker.jar com.badlogic.gdx.tools.texturepacker.TexturePacker ~/texture-packing/ ~/repos/rpg-ktx/assets/ sprites.atlas ~/libgdx-texturepacker-setting.txt'
 alias sr='source ~/.zshrc'
 
+# run an automatic git status after other git command
+git() {
+  command git "$@"
+  case "$1" in
+    add|commit|checkout|reset)
+      command git status
+      ;;
+  esac
+}
+
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

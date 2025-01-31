@@ -5,12 +5,8 @@
     verbose = true
 [alias]
     pf = push --force-with-lease
+    ds = diff --staged
 [rerere]
     enabled = true
 [advice]
     statusHints = off
-[alias]
-  add = "!f() { git add \"$@\" && git status; }; f"
-  commit = "!f() { git commit \"$@\" && git status; }; f"
-  checkout = "!f() { git checkout \"$@\" && git status; }; f"
-  push = "!f() { git push \"$@\" && git status; }; f"
