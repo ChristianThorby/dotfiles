@@ -28,3 +28,6 @@ add to .zshrc file
 fix for holdkey issue after ideaVim install on mac
 defaults write -g ApplePressAndHoldEnabled 0
 restart intellij
+
+less is weird
+may need to run "brew install less" on mac in order to have access to lesskey command if less version < 582

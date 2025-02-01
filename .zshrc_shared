@@ -9,6 +9,7 @@ bindkey -v
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 export PATH="$HOME/bin:${PATH}"
+export LESSKEYIN=~/.config/.lesskey
 
 bindkey "^k" up-line-or-search
 bindkey "^j" down-line-or-search
@@ -41,18 +42,34 @@ setopt HIST_IGNORE_SPACE
 alias vim="nvim"
 alias texturepack='java -cp ~/bin/runnable-texturepacker.jar com.badlogic.gdx.tools.texturepacker.TexturePacker ~/texture-packing/ ~/repos/rpg-ktx/assets/ sprites.atlas ~/libgdx-texturepacker-setting.txt'
 alias sr='source ~/.zshrc'
+alias rs='source ~/.zshrc'
 
-# run an automatic git status after other git command
 git() {
-  command git "$@"
-  case "$1" in
-    add|commit|checkout|reset|push)
-      echo "\n-git status-"
-      command git status
-      ;;
-  esac
-}
+  declare -A corrections=(
+    ["statsu"]="status"
+    ["stauts"]="status"
+    ["commmit"]="commit"
+    ["chekcout"]="checkout"
+    ["pul"]="pull"
+    ["psuh"]="push"
+    ["puhs"]="push"
+    ["idff"]="diff"
+  )
 
+  local subcmd="$1"
+  if [[ -n "${corrections[$subcmd]}" ]]; then
+    subcmd="${corrections[$subcmd]}"
+    shift
+    set -- "$subcmd" "$@"
+  fi
+
+  command git "$@"
+
+  if [ "$subcmd" != "status" ]; then
+    echo "\n\n-! Status !-"
+    command git status
+  fi
+}
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
