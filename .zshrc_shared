@@ -40,7 +40,6 @@ setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_SPACE
 
 alias vim="nvim"
-alias texturepack='java -cp ~/bin/runnable-texturepacker.jar com.badlogic.gdx.tools.texturepacker.TexturePacker ~/texture-packing/ ~/repos/rpg-ktx/assets/ sprites.atlas ~/libgdx-texturepacker-setting.txt'
 alias sr='source ~/.zshrc'
 alias rs='source ~/.zshrc'
 
@@ -58,9 +57,10 @@ git() {
 
   local subcmd="$1"
   if [[ -n "${corrections[$subcmd]}" ]]; then
-    subcmd="${corrections[$subcmd]}"
+    correctly_spelled_subcmd="${corrections[$subcmd]}"
     shift
-    set -- "$subcmd" "$@"
+    echo "Correcting $subcmd to $correctly_spelled_subcmd"
+    set -- "$correctly_spelled_subcmd" "$@"
   fi
 
   command git "$@"
