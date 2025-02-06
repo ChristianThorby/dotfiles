@@ -43,7 +43,19 @@ alias vim="nvim"
 alias sr='source ~/.zshrc'
 alias rs='source ~/.zshrc'
 
+git!() {
+  command git "$@"
+}
+
 git() {
+  # checks current shells option-flags to see if git is called from a non-interactive shell i.e a script
+  # we don't want to mess with git commands if called from a script, so run the command as normal 
+  # without any modifications
+  if [[ $- != *i* ]]; then
+    command git "$@"
+    return
+  fi
+
   declare -A corrections=(
     ["statsu"]="status"
     ["stauts"]="status"
@@ -55,12 +67,24 @@ git() {
     ["idff"]="diff"
   )
 
+  declare -A append=(
+    ["reflog"]=" --date=iso"
+    ["test"]=" test appended string"
+  )
+
   local subcmd="$1"
+
   if [[ -n "${corrections[$subcmd]}" ]]; then
     correctly_spelled_subcmd="${corrections[$subcmd]}"
     shift
     echo "Correcting $subcmd to $correctly_spelled_subcmd"
     set -- "$correctly_spelled_subcmd" "$@"
+  fi
+
+  if [[ -n "${append[$subcmd]}" ]]; then
+    append_string="${append[$subcmd]}"
+    echo "Appending $append_string to $@"
+    set -- "$@" "$append_string"
   fi
 
   command git "$@"
