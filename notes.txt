@@ -1,4 +1,4 @@
-todo new workstation
+new workstation recipe
 
 brew install iterm2
 brew install stow
@@ -7,16 +7,15 @@ brew install neovim
 brew install --cask font-meslo-lg-nerd-font
 brew install starship
 
-legg til meslo i default-profile i iterm
+ITERM2
+    legg til meslo i default-profile i iterm
+    map "shift + space" to "select menu item - copy mode"
 
-clone neovim-treesitter
+clone neovim
     git clone git@github.com:ChristianThorby/kickstart.nvim.git
 
 clone dotfiles
     git clone git@github.com:ChristianThorby/dotfiles.git
-
-clone intellij-config
-    git clone git@github.com:ChristianThorby/intellij_settings.git
 
 add to git config file
 [include]
