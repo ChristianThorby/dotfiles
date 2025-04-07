@@ -42,6 +42,7 @@ setopt HIST_IGNORE_SPACE
 alias vim="nvim"
 alias sr='source ~/.zshrc'
 alias rs='source ~/.zshrc'
+alias amend='git add . && git commit --amend --no-edit'
 
 git!() {
   command git "$@"
