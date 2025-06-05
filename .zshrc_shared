@@ -1,13 +1,12 @@
 HIST_STAMPS="mm/dd/yyyy"
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=100000
 PROMPT='%n@%m:%~%# '
 
 ## Enable vi mode
 bindkey -v
 
-export HISTSIZE=1000000000
-export SAVEHIST=1000000000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 export PATH="$HOME/bin:${PATH}"
 export LESSKEYIN=~/.config/.lesskey
 
@@ -15,16 +14,16 @@ bindkey "^k" up-line-or-search
 bindkey "^j" down-line-or-search
 
 # Share history between all sessions.
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 
 # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_DUPS
+#setopt HIST_IGNORE_DUPS
 
 # Do not write a duplicate event to the history file.
-setopt HIST_SAVE_NO_DUPS
+#setopt HIST_SAVE_NO_DUPS
 
 # Expire a duplicate event first when trimming history.
-setopt HIST_EXPIRE_DUPS_FIRST
+#setopt HIST_EXPIRE_DUPS_FIRST
 
 # Immediate write to history instead of waiting for tab to close
 setopt INC_APPEND_HISTORY
@@ -69,7 +68,11 @@ git() {
   )
 
   declare -A append=(
-    ["reflog"]=" --date=iso"
+    # Fails with following message
+    # Appending  --date=iso to reflog
+    # fatal: ambiguous argument ' --date=iso': unknown revision or path not in the working tree.
+    #["reflog"]=" --date=iso"
+
     ["test"]=" test appended string"
   )
 
