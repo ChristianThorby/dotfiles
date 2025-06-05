@@ -31,3 +31,10 @@ restart intellij
 
 less is weird
 may need to run "brew install less" on mac in order to have access to lesskey command if less version < 582
+
+when keyboard on mac fucks up and wont recognize < and > what worked last time was
+deleting /Library/Preferences/com.apple.keyboardtype.plist
+unplug keyboard
+restart mac
+after restart done, plug in keyboard directly into mac, not dock, with usb-c
+then able to setup correctly and be recognized
