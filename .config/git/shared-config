@@ -1,6 +1,7 @@
 [core]
     editor = vim
     autocrlf = false
+    excludesFile = ~/.gitignore_global
 [commit]
     verbose = true
 [alias]
