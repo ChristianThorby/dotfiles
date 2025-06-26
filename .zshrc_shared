@@ -73,7 +73,8 @@ git() {
     # fatal: ambiguous argument ' --date=iso': unknown revision or path not in the working tree.
     #["reflog"]=" --date=iso"
 
-    ["test"]=" test appended string"
+    ["reflog"]=" --date=iso"
+    ["log"]=" -4"
   )
 
   local subcmd="$1"
