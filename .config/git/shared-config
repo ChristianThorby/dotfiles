@@ -11,3 +11,6 @@
     enabled = true
 [advice]
     statusHints = off
+[init]
+    defaultBranch = main
+    templateDir = ~/.config/git/git-templates
