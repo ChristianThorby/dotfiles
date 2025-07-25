@@ -73,8 +73,8 @@ git() {
     # fatal: ambiguous argument ' --date=iso': unknown revision or path not in the working tree.
     #["reflog"]=" --date=iso"
 
-    ["reflog"]=" --date=iso"
-    ["log"]=" -4"
+    ["reflog"]="--date=iso"
+    ["log"]="-4"
   )
 
   local subcmd="$1"
@@ -86,10 +86,16 @@ git() {
     set -- "$correctly_spelled_subcmd" "$@"
   fi
 
+#  if [[ -n "${append[$subcmd]}" ]]; then
+#    append_string="${append[$subcmd]}"
+#    echo "Appending $append_string to $@"
+#    set -- "$@" "$append_string"
+#  fi
+
   if [[ -n "${append[$subcmd]}" ]]; then
     append_string="${append[$subcmd]}"
     echo "Appending $append_string to $@"
-    set -- "$@" "$append_string"
+    set -- "$@" $append_string
   fi
 
   command git "$@"
