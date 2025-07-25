@@ -68,11 +68,6 @@ git() {
   )
 
   declare -A append=(
-    # Fails with following message
-    # Appending  --date=iso to reflog
-    # fatal: ambiguous argument ' --date=iso': unknown revision or path not in the working tree.
-    #["reflog"]=" --date=iso"
-
     ["reflog"]="--date=iso"
     ["log"]="-4"
   )
@@ -85,12 +80,6 @@ git() {
     echo "Correcting $subcmd to $correctly_spelled_subcmd"
     set -- "$correctly_spelled_subcmd" "$@"
   fi
-
-#  if [[ -n "${append[$subcmd]}" ]]; then
-#    append_string="${append[$subcmd]}"
-#    echo "Appending $append_string to $@"
-#    set -- "$@" "$append_string"
-#  fi
 
   if [[ -n "${append[$subcmd]}" ]]; then
     append_string="${append[$subcmd]}"
