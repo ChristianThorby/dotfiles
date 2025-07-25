@@ -1,12 +1,12 @@
 [core]
     editor = vim
     autocrlf = false
-    excludesFile = ~/.gitignore_global
 [commit]
     verbose = true
 [alias]
     pf = push --force-with-lease
     ds = diff --staged
+    amend = commit --amend --no-edit
 [rerere]
     enabled = true
 [advice]
