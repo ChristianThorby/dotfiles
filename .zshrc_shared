@@ -60,6 +60,7 @@ git() {
     ["statsu"]="status"
     ["stauts"]="status"
     ["commmit"]="commit"
+    ["comit"]="commit"
     ["chekcout"]="checkout"
     ["pul"]="pull"
     ["psuh"]="push"
