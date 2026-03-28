@@ -1,38 +1,67 @@
-new workstation recipe
+NEW WORKSTATION RECIPE
+should be done in order (maybe)
 
+clone dotfiles to user folder, not repos
+    git clone git@github.com:ChristianThorby/dotfiles.git
+
+clone nvim conf //is this needed anymore?
+    git clone git@github.com:ChristianThorby/kickstart.nvim.git
+
+BREW:
+install brew with
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+check https://brew.sh for possible updates to install instructions
+
+BREW INSTALL:
 brew install iterm2
+brew install git
 brew install stow
 brew install fzf
 brew install neovim
 brew install --cask font-meslo-lg-nerd-font
 brew install starship
 
+STOW:
+  run "stow ." inside .dotfiles repo when .dotfiles is in user home folder
+
+ZSHRC:
+this should enable all starship styling of prompt
+add to .zshrc file // may need to create a new file
+    source ~/.zshrc_shared
+
 ITERM2
-    legg til meslo i default-profile i iterm
-    map "shift + space" to "select menu item - copy mode"
-    settings -> profiles -> window -> style = maximized
+    add meslo to default-profile in iterm:
+	 Settings -> Profiles -> Text
+    set maximized window:
+	Settings -> Profiles -> Window -> Style = maximized
+    animated cursor:
+	Settings -> Profiles -> Text -> Cursor -> animate movement
+    map "shift + space" to "select menu item - copy mode":
+	Settings -> Keys -> Key Bindins -> +
 
-clone neovim
-    git clone git@github.com:ChristianThorby/kickstart.nvim.git
 
-clone dotfiles
-    git clone git@github.com:ChristianThorby/dotfiles.git
-
-add to git config file
+GIT
+vim ~/.gitconfig
 [include]
     path = ~/.config/git/shared-config
 
-add to .zshrc file
-    source ~/.zshrc_shared
 
+TODO:
+add instructions on how to implement copy/paste between iterm tabs and system-clipboard
+
+
+BUGS/WEIRD STUFF
+
+- Intellij
 fix for holdkey issue after ideaVim install on mac
 defaults write -g ApplePressAndHoldEnabled 0
 restart intellij
 
-less is weird
+- Less
 may need to run "brew install less" on mac in order to have access to lesskey command if less version < 582
 
-when keyboard on mac fucks up and wont recognize < and > what worked last time was
+- Keyboard
+when ducky keyboard on mac fucks up and wont recognize < and > what worked last time was
 deleting /Library/Preferences/com.apple.keyboardtype.plist
 unplug keyboard
 restart mac
