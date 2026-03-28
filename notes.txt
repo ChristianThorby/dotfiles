@@ -1,6 +1,12 @@
 NEW WORKSTATION RECIPE
 should be done in order (maybe)
 
+clone dotfiles to user folder, not repos
+    git clone git@github.com:ChristianThorby/dotfiles.git
+
+clone nvim conf //is this needed anymore?
+    git clone git@github.com:ChristianThorby/kickstart.nvim.git
+
 BREW:
 install brew with
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -15,24 +21,19 @@ brew install neovim
 brew install --cask font-meslo-lg-nerd-font
 brew install starship
 
-clone dotfiles to user folder, not repos
-    git clone git@github.com:ChristianThorby/dotfiles.git
-
-clone nvim conf //is this needed anymore?
-    git clone git@github.com:ChristianThorby/kickstart.nvim.git
 
 STOW:
   run "stow ." inside .dotfiles repo when .dotfiles is in user home folder
-
-GIT
-vim ~/.gitconfig
-[include]
-    path = ~/.config/git/shared-config
 
 ZSHRC:
 this should enable all starship styling of prompt
 add to .zshrc file // may need to create a new file
     source ~/.zshrc_shared
+
+GIT
+vim ~/.gitconfig
+[include]
+    path = ~/.config/git/shared-config
 
 ITERM2
     add meslo to default-profile in iterm:
@@ -59,9 +60,10 @@ restart intellij
 may need to run "brew install less" on mac in order to have access to lesskey command if less-version < 582
 
 - Keyboard
-when ducky keyboard on mac fucks up and wont recognize < and > what worked last time was
+when keyboard on mac fucks up and wont recognize < and > what worked last time was
 deleting /Library/Preferences/com.apple.keyboardtype.plist
 unplug keyboard
 restart mac
 after restart done, plug in keyboard directly into mac, not dock
 then able to setup correctly and be recognized
+
