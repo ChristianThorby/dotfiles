@@ -36,13 +36,13 @@ add to .zshrc file // may need to create a new file
 
 ITERM2
     add meslo to default-profile in iterm:
-	 Settings -> Profiles -> Text
+		Settings -> Profiles -> Text
     set maximized window:
-	Settings -> Profiles -> Window -> Style = maximized
+		Settings -> Profiles -> Window -> Style = maximized
     animated cursor:
-	Settings -> Profiles -> Text -> Cursor -> animate movement
-    map "shift + space" to "select menu item - copy mode":
-	Settings -> Keys -> Key Bindings -> +
+		Settings -> Profiles -> Text -> Cursor -> animate movement
+    copy mode hotkey:
+		Settings -> Keys -> Key Bindings -> + -> "shift space" -> select "Select Menu Item..." in dropdown then select "Copy Mode" in next dropdown
 
 TODO:
 add instructions on how to implement copy/paste between iterm tabs and system-clipboard
