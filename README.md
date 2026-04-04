@@ -1,69 +1,133 @@
-NEW WORKSTATION RECIPE
-should be done in order (maybe)
+# New Workstation Setup
 
-clone dotfiles to user folder, not repos (for stow to work)
-    git clone git@github.com:ChristianThorby/dotfiles.git
+Follow these steps in order.
 
-clone nvim conf //is this needed anymore?
-    git clone git@github.com:ChristianThorby/kickstart.nvim.git
+---
 
-BREW:
-install brew with
+## Clone Repositories
+
+Clone dotfiles into home directory (required for `stow`):
+
+```bash
+git clone git@github.com:ChristianThorby/dotfiles.git ~/
+```
+---
+
+## Install Homebrew
+
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-check https://brew.sh for possible updates to install instructions
+```
+https://brew.sh
 
-BREW INSTALL:
-brew install iterm2
-brew install git
-brew install stow
-brew install fzf
-brew install neovim
-brew install --cask font-meslo-lg-nerd-font
+---
+
+## Install Packages
+
+```bash
+brew install iterm2 && \
+brew install git && \
+brew install stow && \
+brew install fzf && \
+brew install --cask font-meslo-lg-nerd-font && \
 brew install starship
+```
 
+---
 
-STOW:
-  run "stow ." inside .dotfiles repo when .dotfiles is in user home folder
+## Stow Dotfiles
 
-ZSHRC:
-this should enable all starship styling of prompt
-add to .zshrc file // may need to create a new file
-    source ~/.zshrc_shared
+From inside the dotfiles directory:
 
-GIT
+```bash
+stow .
+```
+
+---
+
+## Zsh Configuration
+
+Add this to `.zshrc` (create the file if needed):
+
+```bash
+source ~/.zshrc_shared
+```
+
+---
+
+## Git Configuration
+
+Edit Git config:
+
+```bash
 vim ~/.gitconfig
+```
+
+Add:
+
+```ini
 [include]
     path = ~/.config/git/shared-config
+```
 
-ITERM2
-    add meslo to default-profile in iterm:
-		Settings -> Profiles -> Text
-    set maximized window:
-		Settings -> Profiles -> Window -> Style = maximized
-    animated cursor:
-		Settings -> Profiles -> Text -> Cursor -> animate movement
-    copy mode hotkey:
-		Settings -> Keys -> Key Bindings -> + -> "shift space" -> select "Select Menu Item..." in dropdown then select "Copy Mode" in next dropdown
+---
 
-TODO:
-add instructions on how to implement copy/paste between iterm tabs and system-clipboard
+## iTerm2 Setup
 
+### Font
+- Settings → Profiles → Text
+  - Set font to **Meslo**
 
-BUGS/WEIRD STUFF
+### Window
+- Settings → Profiles → Window
+  - Set **Style = Maximized**
 
-- Intellij
-fix for holdkey issue after ideaVim install on mac
+### Cursor
+- Settings → Profiles → Text → Cursor
+  - Enable **Animate Movement**
+
+### Copy Mode Shortcut
+- Settings → Keys → Key Bindings
+  - Add new:
+    - Shortcut: `Shift + Space`
+    - Action: `Select Menu Item...`
+    - Menu: `Copy Mode`
+
+---
+
+## Bugs / Fixes
+
+### IntelliJ (IdeaVim key hold issue on macOS)
+
+This option comes as a prompt after installing ideavim for the first time
+so only needed if choosing the wrong option
+```bash
 defaults write -g ApplePressAndHoldEnabled 0
-restart intellij
+```
 
-- Less
-may need to run "brew install less" on mac in order to have access to lesskey command if less-version < 582
+Restart IntelliJ afterward.
 
-- Keyboard
-when keyboard on mac fucks up and wont recognize < and > what worked last time was
-deleting /Library/Preferences/com.apple.keyboardtype.plist
-unplug keyboard
-restart mac
-after restart done, plug in keyboard directly into mac, not dock
-then able to setup correctly and be recognized
+---
 
+### less missing `lesskey`
+
+If `less` version is below 582:
+
+```bash
+brew install less
+```
+
+---
+
+### Keyboard issue (`<` and `>` not working)
+
+Steps:
+
+1. Delete:
+   ```
+   /Library/Preferences/com.apple.keyboardtype.plist
+   ```
+2. Unplug keyboard
+3. Restart Mac
+4. Plug keyboard directly into Mac (not dock)
+5. Reconfigure keyboard
