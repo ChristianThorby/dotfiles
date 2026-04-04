@@ -38,7 +38,7 @@ setopt EXTENDED_HISTORY
 # Do not record an event starting with a space.
 setopt HIST_IGNORE_SPACE
 
-alias vim="nvim"
+# alias vim="nvim"
 alias sr='source ~/.zshrc'
 alias rs='source ~/.zshrc'
 alias amend='git add . && git commit --amend --no-edit'
@@ -70,7 +70,6 @@ git() {
 
   declare -A append=(
     ["reflog"]="--date=iso"
-    ["log"]="-4"
   )
 
   local subcmd="$1"
