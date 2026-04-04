@@ -1,7 +1,7 @@
 NEW WORKSTATION RECIPE
 should be done in order (maybe)
 
-clone dotfiles to user folder, not repos
+clone dotfiles to user folder, not repos (for stow to work)
     git clone git@github.com:ChristianThorby/dotfiles.git
 
 clone nvim conf //is this needed anymore?
