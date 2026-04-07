@@ -6,7 +6,7 @@ Follow these steps in order.
 
 ## Clone Repositories
 
-Clone dotfiles into home directory (required for `stow`):
+Clone dotfiles into home directory (`stow` requires homedir, not the usual repos dir):
 
 ```bash
 git clone git@github.com:ChristianThorby/dotfiles.git ~/
@@ -95,8 +95,57 @@ Add:
 
 ---
 
-## Bugs / Fixes
+# Docker on Mac
+```bash
+brew install docker colima
+```
 
+check if colima is running
+```bash
+colima status
+```
+start colima
+```bash
+colima start 
+```
+test docker
+```bash
+docker run hello-world
+```
+
+errors about `/var/run/docker.sock` should not happen, 
+reinstall, restart, rewhatever, but should not have to mess around with env-vars to get 
+docker running on mac
+
+can give colime more resources if needed
+
+have not tested this yet!
+```bash
+colima start --cpu 2 --memory 4 --disk 60
+```
+## Docker compose on Mac
+In brew, `docker-compose` seems to refer to the plugin and not the standalone
+```bash
+brew install docker-compose
+```
+do as the install output tells you:
+Compose is a Docker plugin. For Docker to find the plugin, add "cliPluginsExtraDirs" to ~/.docker/config.json:
+```bash
+"cliPluginsExtraDirs": [
+  "/opt/homebrew/lib/docker/cli-plugins"
+]
+```
+docker compose test
+```bash
+mkdir ~/docker-compose-test && \
+printf "services:\n  hello_world:\n    image: hello-world\n" > ~/docker-compose-test/docker-compose.yml && \
+docker compose -f ~/docker-compose-test/docker-compose.yml up && \
+docker compose -f ~/docker-compose-test/docker-compose.yml down && \
+rm -rf ~/docker-compose-test
+```
+
+
+## Bugs / Fixes
 ### IntelliJ (IdeaVim key hold issue on macOS)
 
 This option comes as a prompt after installing ideavim for the first time
