@@ -15,3 +15,9 @@
 [init]
     defaultBranch = main
     templateDir = ~/.config/git/git-templates
+[push]
+    # update submodules on branch-switch, push and pull https://www.youtube.com/watch?v=JESI498HSMA
+    recurseSubmodules = on-demand
+[submodule]
+    # update submodules on branch-switch, push and pull https://www.youtube.com/watch?v=JESI498HSMA
+    recurse = true
